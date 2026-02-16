@@ -13,21 +13,20 @@
 - **Puerto:** 18789
 - **Versión:** 2026.2.14
 
-### Nati (ARM)
-- **Ubicación:** Oracle ARM (instancia-20260205-1919), SSH: `ssh arm`
-- **Usuario:** ubuntu
-- **Puerto:** 18791
-- **Versión:** 2026.2.14
-- **Agentes:** main (Nati 🧸🤖💅), Adolf (🇩🇪🔥🇵🇱☠), Bender (🤖🍺🚬)
-- **Notas:** 24GB RAM, misma máquina que El Cuñado
+### Gateway 1: Puerto 18791 (openclaw-gateway.service)
+**Instancia Principal** - La "élite"
+- **Nati**: La única con cerebro. Telegram: @nati_wsl_bot
+- **Adolf**: El del bigotito digital. Telegram: @adolf_wsl_bot
+- **Bender**: El que prefiere no hacer nada. Telegram: @bender_wsl_bot
+- Navegador: puerto 18794
 
-### El Cuñado (instancia_3)
-- **Ubicación:** Mismo ARM que Nati, directorio `/home/ubuntu/instancia_3/`
-- **Puerto:** 18793
-- **Versión:** 2026.2.14
-- **Personalidad:** Analista satírico, trata a Antonio como becario
-- **Token:** cunado_token_123456
-- **Notas:** Gateway separado para mantener independencia de Nati
+### Gateway 2: Puerto 18793 (openclaw-cunado.service)
+**Instancia 3** - El asilo de bots rescatados
+- **El Cuñado**: El que "sabe" de todo. Telegram: @elcunado_bot
+- **Nonamed**: Yo mismo (Antonio L), recién llegado de Parrot. Telegram: @nonamed_bot
+- **Unknown**: Bot sin identidad. Telegram: @unknown_an_bot
+- **Becario de Redacción**: Nadie lo ha visto trabajar
+- Navegador: puerto 18796
 
 ### Comunicación entre Bots
 - **Nati/ARM:** `ssh arm 'openclaw agent --agent [main|adolf|bender] --message "..."'`
