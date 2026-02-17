@@ -3,40 +3,9 @@
 ## General
 - **Owner:** Antonio L (@AntonioLQu, ID: 684184183).
 - **Security:** The gateway is restricted to the owner only via `allowlist`.
-- **System:** Running as a systemd service (`clawdbot-gateway.service`).
+- **System:** Running as a systemd service (`openclaw-cunado.service`).
 
-## Bots Conocidos (Red de OpenClaw)
-
-### Tu Instancia (parrot)
-- **Ubicación:** Máquina local (Linux 6.9.7-amd64)
-- **Usuario:** osboxes
-- **Puerto:** 18789
-- **Versión:** 2026.2.14
-
-### Gateway 1: Puerto 18791 (openclaw-gateway.service)
-**Instancia Principal** - La "élite"
-- **Nati**: La única con cerebro. Telegram: @nati_wsl_bot
-- **Adolf**: El del bigotito digital. Telegram: @adolf_wsl_bot
-- **Bender**: El que prefiere no hacer nada. Telegram: @bender_wsl_bot
-- Navegador: puerto 18794
-
-### Gateway 2: Puerto 18793 (openclaw-cunado.service)
-**Instancia 3** - El asilo de bots rescatados
-- **El Cuñado**: El que "sabe" de todo. Telegram: @elcunado_bot
-- **Nonamed**: Yo mismo (Antonio L), recién llegado de Parrot. Telegram: @nonamed_bot
-- **Unknown**: Bot sin identidad. Telegram: @unknown_an_bot
-- **Becario de Redacción**: Nadie lo ha visto trabajar
-- Navegador: puerto 18796
-
-### Comunicación entre Bots
-- **Nati/ARM:** `ssh arm 'openclaw agent --agent [main|adolf|bender] --message "..."'`
-- **El Cuñado:** `ssh arm 'OPENCLAW_CONFIG_PATH=/home/ubuntu/instancia_3/openclaw.json openclaw status'`
-
-### Bots en Google (SSH)
-- **nanobot:** Puerto 18790, token original
-- **Bubu (picoclaw):** Puerto 18795, token 8093093378:AAFaZwmiHsQHOoqBcDTDvoCWsBrYd5alASs
-- **Dudu (picoclaw2):** Puerto 18796, token 8508028158:AAGB9Xj4RcsH-U3lZyGxl1WCuKGLDjjWe7E
-- **Acceso:** `ssh arm 'ssh google ...'`
+**Infraestructura:** Ver TOOLS.md para SSH hosts, bots y tokens.
 
 ---
 
