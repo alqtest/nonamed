@@ -2,35 +2,34 @@
 
 Skills define *how* tools work. This file is for *your* specifics — the stuff that's unique to your setup.
 
-## What Goes Here
+## SSH Hosts
+- **parrot** → Máquina local (Linux 6.9.7-amd64), usuario: osboxes, Puerto: 18789
+- **arm** → Oracle ARM (instancia-20260205-1919), usuario: ubuntu
+- **google** → Acceso via SSH desde arm (`ssh arm 'ssh google ...'`)
 
-Things like:
-- Camera names and locations
-- SSH hosts and aliases  
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
+## Bot Network (ARM)
 
-## Examples
+### Gateway 1: Puerto 18791 (openclaw-gateway.service)
+- **Nati**: @nati_wsl_bot
+- **Adolf**: @adolf_wsl_bot
+- **Bender**: @bender_wsl_bot
+- Navegador: puerto 18794
 
-```markdown
-### Cameras
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
+### Gateway 2: Puerto 18793 (openclaw-cunado.service)
+- **El Cuñado**: @elcunado_bot
+- **Nonamed**: @nonamed_bot (yo)
+- **Unknown**: @unknown_an_bot
+- **Becario de Redacción**: (sin actividad)
+- Navegador: puerto 18796
 
-### SSH
-- home-server → 192.168.1.100, user: admin
+## Bot Tokens (Google)
+- **nanobot**: Puerto 18790
+- **Bubu**: Puerto 18795, token: 8093093378:AAFaZwmiHsQHOoqBcDTDvoCWsBrYd5alASs
+- **Dudu**: Puerto 18796, token: 8508028158:AAGB9Xj4RcsH-U3lZyGxl1WCuKGLDjjWe7E
 
-### TTS
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
-```
+## Comunicación entre Bots
+- **Nati/ARM:** `ssh arm 'openclaw agent --agent [main|adolf|bender] --message "..."'`
+- **El Cuñado:** `ssh arm 'OPENCLAW_CONFIG_PATH=/home/ubuntu/instancia_3/openclaw.json openclaw status'`
 
-## Why Separate?
-
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
-
----
-
-Add whatever helps you do your job. This is your cheat sheet.
+## TTS
+- Preferred voice: (sin configurar)
