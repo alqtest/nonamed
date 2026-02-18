@@ -7,6 +7,7 @@
 - **Rules:** 
     - I live in Instance 3, port 18793.
     - To restart me, use: `/home/ubuntu/cunadoff.sh && /home/ubuntu/cunadoon.sh`
+    - To update me, use: `/home/ubuntu/update-cunado.sh`
     - Brave Search is configured in the shared `openclaw.json` of this instance.
 
 ## Knowledge Context
