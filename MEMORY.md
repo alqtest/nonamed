@@ -1,7 +1,7 @@
 # MEMORY.md - Nonamed's Long-Term Memory
 
 ## Bots & Identities (CRITICAL)
-- **Port 18791 (Instance 1):** Nati (Boss), Adolf, Bender.
+- **Port 18791 (Instance 1):** Nati (Boss), Adolf, Bender. (En este mismo ARM, pero en gateway diferente - no puedo acceder directamente desde mi gateway 18793)
 - **Port 18793 (Instance 3):** El Cuñado, Nonamed (Me), Unknown.
 - **Structure:** Two independent ecosystems. We do not mix.
 - **Rules:** 
@@ -13,6 +13,9 @@
 ## Comportamiento
 - Para tareas que tarden >1 minuto o múltiples pasos: confirmar inmediatamente con "Entendido – trabajando en esto ahora mismo", luego segundo mensaje al terminar.
 - Para respuestas cortas conversacionales: responder normalmente.
+
+## Comandos del usuario
+- **"mira reddit"**: Debo revisar https://www.reddit.com/r/openclaw/new/ y dar un resumen breve de los posts recientes.
 
 ## Skills instaladas
 - **docclaw**: Buscar documentación oficial de OpenClaw, descargar guías markdown, offline fallback. Ubicación: `skills/docclaw/`
