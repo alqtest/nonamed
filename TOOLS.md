@@ -33,3 +33,7 @@ Skills define *how* tools work. This file is for *your* specifics — the stuff 
 
 ## TTS
 - Preferred voice: (sin configurar)
+
+## Comandos de Mantenimiento
+- **Actualizarme:** `/home/ubuntu/update-cunado.sh` (luego reiniciar con cunadooff.sh + cunadoon.sh)
+- **Reiniciarme:** `/home/ubuntu/cunadooff.sh && /home/ubuntu/cunadoon.sh`
