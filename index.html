@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Me Pienso Levantar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --yellow: #facc15;
+            --blue: #3b82f6;
+            --green: #22c55e;
+            --red: #ef4444;
+            --dark: #1e1b4b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--purple), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 3s ease infinite;
+        }
+
+        @keyframes rainbow {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(360deg); }
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--pink);
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--purple) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(236,72,153,0.3) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            color: white;
+            text-shadow: 0 0 30px var(--pink), 0 0 60px var(--purple);
+            animation: float 3s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--yellow);
+            margin-top: 1rem;
+            z-index: 1;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            min-height: 100vh;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+
+        /* Reasons Section */
+        .reasons {
+            background: linear-gradient(180deg, var(--blue) 0%, var(--purple) 100%);
+        }
+
+        .reasons .section-title {
+            color: white;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: slideUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--purple);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--yellow);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .gallery-item::after {
+            content: '🛏️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(180deg, var(--green) 0%, var(--blue) 100%);
+        }
+
+        .testimonials .section-title {
+            color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--purple);
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            margin-top: 1rem;
+        }
+
+        .testimonial .author {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: var(--pink);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--dark);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cta h2 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1rem;
+            animation: shake 0.5s ease infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
+        }
+
+        .cta p {
+            font-size: 1.5rem;
+            color: var(--yellow);
+            margin-bottom: 2rem;
+        }
+
+        .cta button {
+            padding: 1rem 3rem;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, var(--purple), var(--pink));
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(236,72,153,0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
+            nav ul { display: none; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Floating elements */
+        .floating {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatAround 10s ease-in-out infinite;
+        }
+
+        @keyframes floatAround {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(50px, -30px) rotate(10deg); }
+            50% { transform: translate(-20px, 50px) rotate(-10deg); }
+            75% { transform: translate(30px, 20px) rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">🛏️ No Me Pienso Levantar</div>
+        <ul>
+            <li><a href="#reasons">Razones</a></li>
+            <li><a href="#gallery">Galería</a></li>
+            <li><a href="#testimonials">Testimonios</a></li>
+            <li><a href="#cta">Únete</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="floating" style="top: 20%; left: 10%;">😴</div>
+        <div class="floating" style="top: 30%; right: 15%;">🛏️</div>
+        <div class="floating" style="bottom: 20%; left: 20%;">💤</div>
+        <div class="floating" style="bottom: 30%; right: 10%;">🥱</div>
+        <h1>NO ME PIENSO LEVANTAR</h1>
+        <p>La revolución del perezosos está aquí</p>
+        <div class="scroll-down">⬇️</div>
+    </section>
+
+    <section class="reasons" id="reasons">
+        <h2 class="section-title">🤔 ¿Por Qué No Me Pienso Levantar?</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1520209759809-a93f90f8f9f4?w=400" alt="Cama">
+                <div class="card-content">
+                    <h3>La Cama Es Vida</h3>
+                    <p>No me pienso levantar. ¿Para qué? Si aquí estoy perfect.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400" alt="Desayuno">
+                <div class="card-content">
+                    <h3>Desayuno en la Cama</h3>
+                    <p>No me pienso levantar. Me lo traigo todo a la cama.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512891466451-2d96c1c4852b?w=400" alt="Trabajo">
+                <div class="card-content">
+                    <h3>Trabajo Remoto</h3>
+                    <p>No me pienso levantar. Teletrabajo desde las sábanas.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=400" alt="Peliculas">
+                <div class="card-content">
+                    <h3>Maratón de Pelis</h3>
+                    <p>No me pienso levantar. Netflix desde la almohada.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?w=400" alt="Mascota">
+                <div class="card-content">
+                    <h3>Mi Perro También Se Queda</h3>
+                    <p>No me pienso levantar. Mi mascota me acompaña.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" alt="Sueño">
+                <div class="card-content">
+                    <h3>哲学 del Sueño</h3>
+                    <p>No me pienso levantar. Es mi meditación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">📸 Galería de Pereza</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1520209759809-a93f90f8f9f4?w=300" alt="1"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=300" alt="2"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?w=300" alt="3"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300" alt="4"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512891466451-2d96c1c4852b?w=300" alt="5"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?w=300" alt="6"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1520209759809-a93f90f8f9f4?w=300" alt="7"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=300" alt="8"></div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">💬 Testimonios de Expertos</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>"Llevo 3 días sin levantarme y mi productividad ha bajado un 100%. Recomendado."</p>
+                <div class="author">- Juan, Experto en No Hacer Nada</div>
+            </div>
+            <div class="testimonial">
+                <p>"Mi récord son 72 horas. ¿El secreto? Todo lo necesito cerca de la cama."</p>
+                <div class="author">- María, Campeona de la Pereza</div>
+            </div>
+            <div class="testimonial">
+                <p>"No me pienso levantar. Es mi mantra diario."</p>
+                <div class="author">- Pedro, Filosofo de Sábanas</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="cta">
+        <h2>NO ME PIENSO LEVANTAR</h2>
+        <p>Únete al movimiento más perezoso de la historia</p>
+        <button onclick="alert('¡GENIAL! Ahora tú tampoco te levantes 🛏️')">¡Me Apunto!</button>
+    </section>
+
+    <footer>
+        <p>🛏️ NO ME PIENSO LEVANTAR © 2026 | Hecho con pereza y amor desde la cama</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        });
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.animationPlayState = 'paused';
+            observer.observe(card);
+        });
+
+        // Random floating message
+        const messages = [
+            'No me pienso levantar',
+            '¿Para qué levantarse?',
+            'La cama me llama',
+            '5 minutitos más',
+            'Esto es vida',
+            'Pereza nivel Dios'
+        ];
+
+        setInterval(() => {
+            const msg = document.createElement('div');
+            msg.className = 'floating';
+            msg.textContent = messages[Math.floor(Math.random() * messages.length)];
+            msg.style.left = Math.random() * 80 + 10 + '%';
+            msg.style.top = Math.random() * 80 + 10 + '%';
+            msg.style.color = 'white';
+            msg.style.fontSize = '1rem';
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+        }, 2000);
+    </script>
+</body>
+</html>
